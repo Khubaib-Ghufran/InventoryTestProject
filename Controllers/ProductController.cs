@@ -20,7 +20,7 @@ namespace InventoryBeginners.Controllers
 
         private readonly IWebHostEnvironment _webHost;
 
-        private readonly IBrand _brandRepo;
+        
         private readonly ICategory _categoryRepo;        
         private readonly IProductGroup _productGroupRepo;
         private readonly IProductProfile _productProfileRepo;
@@ -30,7 +30,7 @@ namespace InventoryBeginners.Controllers
 
         private readonly IUnit _unitRepo;
         private readonly IProduct _productRepo;
-        public ProductController(IProduct productrepo,IUnit unitrepo, IBrand brandRepo, ICategory categoryRepo, IProductGroup productGroupRepo, IProductProfile productProfileRepo, IWebHostEnvironment webHost) // here the repository will be passed by the dependency injection.
+        public ProductController(IProduct productrepo,IUnit unitrepo, ICategory categoryRepo, IProductGroup productGroupRepo, IProductProfile productProfileRepo, IWebHostEnvironment webHost) // here the repository will be passed by the dependency injection.
         {
 
             _webHost = webHost;
@@ -39,7 +39,7 @@ namespace InventoryBeginners.Controllers
             _unitRepo = unitrepo;
 
 
-            _brandRepo = brandRepo;
+           
             _categoryRepo = categoryRepo;
 
 
@@ -86,7 +86,7 @@ namespace InventoryBeginners.Controllers
 
             ViewBag.Units = GetUnits();
 
-            ViewBag.Brands = GetBrands();
+            
 
             ViewBag.Categories = GetCategories();
 
@@ -170,7 +170,7 @@ namespace InventoryBeginners.Controllers
             ViewBag.Units = GetUnits();
 
          
-            ViewBag.Brands = GetBrands();
+           
 
             ViewBag.Categories = GetCategories();
 
@@ -295,27 +295,7 @@ namespace InventoryBeginners.Controllers
             return lstUnits;        
         }
 
-        private List<SelectListItem> GetBrands()
-        {
-            var lstItems = new List<SelectListItem>();
-
-            PaginatedList<Brand> items = _brandRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
-            lstItems = items.Select(ut => new SelectListItem()
-            {
-                Value = ut.Id.ToString(),
-                Text = ut.Name
-            }).ToList();
-
-            var defItem = new SelectListItem()
-            {
-                Value = "",
-                Text = "----Select Brand----"
-            };
-
-            lstItems.Insert(0, defItem);
-
-            return lstItems;
-        }
+        
 
 
         private List<SelectListItem> GetCategories()

@@ -44,7 +44,7 @@ namespace InventoryBeginners.Models
         [ForeignKey("Brands")]
         [Display(Name = "Brand")]
         public int? BrandId { get; set; }
-        public virtual Brand Brands { get; set; }
+        
 
 
         [ForeignKey("Categories")]

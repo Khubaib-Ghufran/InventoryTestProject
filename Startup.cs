@@ -40,7 +40,7 @@ namespace InventoryBeginners
             services.AddScoped<ISupplier, SupplierRepo>();
 
             services.AddScoped<ICategory, CategoryRepo>();
-            services.AddScoped<IBrand, BrandRepo>();
+            
             services.AddScoped<IProductProfile, ProductProfileRepo>();
             services.AddScoped<IProductGroup, ProductGroupRepo>();
             //services.AddScoped<IProductAttribute, ProductAttributeRepo>();

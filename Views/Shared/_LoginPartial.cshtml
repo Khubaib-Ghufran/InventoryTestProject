@@ -10,7 +10,7 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <a id="manage" class="nav-link @menuTextColor" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            <a id="manage" class="nav-link @menuTextColor" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><img class="rounded-circle" width="30" height="30" src="~/images/8fb9d234-0d1f-469f-909c-46e6ad7a9d8e_BlackShirt.jpg" />  @UserManager.GetUserName(User)!</a>
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
