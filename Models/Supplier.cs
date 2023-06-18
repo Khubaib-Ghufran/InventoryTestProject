@@ -14,8 +14,21 @@ namespace InventoryBeginners.Models
 
         [Required]
         [MaxLength(75)]
-        public string Name { get; set; } = "";        
-        
+        public string Name { get; set; } = "";
+
+        [Required]
+        [MaxLength(75)]
+        public string FName { get; set; } = "";
+
+
+        [Required]
+        [MaxLength(40)]
+        public string Job { get; set; } = "";
+
+        [Required]
+        [MaxLength(50)]
+        public string Department { get; set; } = "";
+
 
         [Remote("IsEmailExists","Supplier",AdditionalFields="Id", ErrorMessage ="Email Id Already Exists")]
         [Required]
