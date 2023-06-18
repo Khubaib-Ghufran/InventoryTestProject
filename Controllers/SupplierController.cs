@@ -70,6 +70,16 @@ namespace InventoryBeginners.Controllers
                 if (_repo.IsSupplierNameExists(supplier.Name) == true)
                     errMessage = errMessage + " " + " Supplier Name " + supplier.Name + " Exists Already";
 
+
+                if (_repo.IsSupplierFNameExists(supplier.FName) == true)
+                    errMessage = errMessage + " " + " Supplier FName " + supplier.FName + " Exists Already";
+
+                if (_repo.IsSupplierJobExists(supplier.Job) == true)
+                    errMessage = errMessage + " " + " Supplier Job " + supplier.Job + " Exists Already";
+
+                if (_repo.IsSupplierDepartmentExists(supplier.Department) == true)
+                    errMessage = errMessage + " " + " Supplier Department " + supplier.Department + " Exists Already";
+
                 if (_repo.IsSupplierEmailExists(supplier.EmailId) == true)
                     errMessage = errMessage + " " + " Supplier Email " + supplier.EmailId + " Exists Already";
 

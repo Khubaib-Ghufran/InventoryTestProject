@@ -139,5 +139,59 @@ namespace InventoryBeginners.Repositories
             else
                 return false;
         }
+
+        public bool IsSupplierFNameExists(string fname)
+        {
+            int ct = _context.Suppliers.Where(s => s.FName.ToLower() == fname.ToLower()).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+
+        }
+        public bool IsSupplierFNameExists(string fname, int Id)
+        {
+            int ct = _context.Suppliers.Where(s => s.FName.ToLower() == fname.ToLower() && s.Id != Id).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsSupplierDepartmentExists(string department)
+        {
+            int ct = _context.Suppliers.Where(s => s.Department.ToLower() == department.ToLower()).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+
+        }
+        public bool IsSupplierDepartmentExists(string department, int Id)
+        {
+            int ct = _context.Suppliers.Where(s => s.Department.ToLower() == department.ToLower() && s.Id != Id).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsSupplierJobExists(string job)
+        {
+            int ct = _context.Suppliers.Where(s => s.Job.ToLower() == job.ToLower()).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+
+        }
+        public bool IsSupplierJobExists(string job, int Id)
+        {
+            int ct = _context.Suppliers.Where(s => s.Job.ToLower() == job.ToLower() && s.Id != Id).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model PagerModel
 
-<div class="container m-0 p-0 btn-group" style="background-color:black; border-radius:10px;  height:45px; color:white;">
+<div class="container m-0 p-0 btn-group text-dark" style="background-color:gainsboro; border-radius:10px;  height:45px; color:white;">
 
     <div class="col-4 btn-group p-1 m-1">
         <p>
@@ -10,8 +10,8 @@
 
 
 
-    <div class="col-3 btn-group justify-content-end">
-        <span class="col-7 mt-2 p-0">
+    <div class="col-3 btn-group justify-content-end text-dark">
+        <span class="col-7 mt-2 p-0 ">
             Rows Per Page
         </span>
 
@@ -24,7 +24,7 @@
 
 
 
-    <div class="col-4 btn-group justify-content-end mt-2">
+    <div class="col-4 btn-group justify-content-end mt-2 text-dark">
         <p>
             Showing @Model.CurrentPage / @Model.TotalPages Pages
         </p>
@@ -33,7 +33,7 @@
 
 </div>
 
-<script>
+<script class="text-dark">
     function ChangePageSize(obj)
     {
         var controllerName = '@this.ViewContext.RouteData.Values["controller"].ToString()';

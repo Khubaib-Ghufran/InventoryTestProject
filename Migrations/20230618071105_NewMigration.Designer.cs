@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace InventoryBeginners.Migrations
+namespace JobTestInventory.Migrations
 {
     [DbContext(typeof(InventoryContext))]
-    [Migration("20230611154040_migdatabase")]
-    partial class migdatabase
+    [Migration("20230618071105_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,28 +20,6 @@ namespace InventoryBeginners.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("InventoryBeginners.Models.Brand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands");
-                });
 
             modelBuilder.Entity("InventoryBeginners.Models.Category", b =>
                 {
@@ -106,8 +84,6 @@ namespace InventoryBeginners.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Code");
-
-                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
@@ -180,10 +156,25 @@ namespace InventoryBeginners.Migrations
                         .HasMaxLength(6)
                         .HasColumnType("nvarchar(6)");
 
+                    b.Property<string>("Department")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("EmailId")
                         .IsRequired()
                         .HasMaxLength(75)
                         .HasColumnType("nvarchar(75)");
+
+                    b.Property<string>("FName")
+                        .IsRequired()
+                        .HasMaxLength(75)
+                        .HasColumnType("nvarchar(75)");
+
+                    b.Property<string>("Job")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -423,10 +414,6 @@ namespace InventoryBeginners.Migrations
 
             modelBuilder.Entity("InventoryBeginners.Models.Product", b =>
                 {
-                    b.HasOne("InventoryBeginners.Models.Brand", "Brands")
-                        .WithMany()
-                        .HasForeignKey("BrandId");
-
                     b.HasOne("InventoryBeginners.Models.Category", "Categories")
                         .WithMany()
                         .HasForeignKey("CategoryId");
@@ -444,8 +431,6 @@ namespace InventoryBeginners.Migrations
                         .HasForeignKey("UnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Brands");
 
                     b.Navigation("Categories");
 

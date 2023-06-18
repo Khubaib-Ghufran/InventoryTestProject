@@ -18,8 +18,17 @@ namespace InventoryBeginners.Interfaces
         public bool IsSupplierNameExists(string name);
         public bool IsSupplierNameExists(string name, int Id);
 
+        public bool IsSupplierFNameExists(string fname);
+        public bool IsSupplierFNameExists(string fname, int Id);
+
         public bool IsSupplierCodeExists(string code);
         public bool IsSupplierCodeExists(string code, int Id);
+
+        public bool IsSupplierDepartmentExists(string department);
+        public bool IsSupplierDepartmentExists(string department, int Id);
+
+        public bool IsSupplierJobExists(string job);
+        public bool IsSupplierJobExists(string job, int Id);
 
         public bool IsSupplierEmailExists(string email);
         public bool IsSupplierEmailExists(string email, int Id);
